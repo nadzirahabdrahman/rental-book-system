@@ -17,10 +17,13 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+     //what must USERS have to fill the INPUT to register
     protected $fillable = [
-        'name',
-        'email',
+        'username',
         'password',
+        'phone',
+        'address',
     ];
 
     /**
@@ -40,5 +43,10 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+    ];
+
+    //for REGISTER USERS automatic set to ROLE ID == 2 (CLIENT)
+    protected $attributes = [
+        'role_id' => 2,
     ];
 }

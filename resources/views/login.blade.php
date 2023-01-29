@@ -27,7 +27,7 @@
     }
 
     form div {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
 
 </style>
@@ -63,7 +63,7 @@
                 </div>
 
                 <div class="text-center">
-                    <a href="signup">Sign up</a>
+                    Create an account?  <a href="signup">Sign up</a>
                 </div>
             </form>
 

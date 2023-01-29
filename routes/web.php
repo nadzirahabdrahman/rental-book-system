@@ -29,7 +29,11 @@ Route::middleware('guest-only')->group(function() {
 
     Route::post('login', [AuthController::class, 'authenticating']);
 
+    //for SIGN UP BUTTON at login page
     Route::get('signup', [AuthController::class, 'signup']);
+
+    //for SIGN UP BUTTON during signUp process
+    Route::post('signup', [AuthController::class, 'signupProcess']);
 
 });
 

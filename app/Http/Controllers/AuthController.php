@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
@@ -31,6 +33,11 @@ class AuthController extends Controller
             //for INACTIVE users, 
             if (Auth::user()->status != 'Active') {
 
+                //to cancel USER'S session for INACTIVE account after registration
+                Auth::logout();
+                $request->session()->invalidate();
+                $request->session()->regenerateToken();
+
                 Session::flash('status', 'Failed');
                 Session::flash('message', 'Your account is inactive, 
                 please contact your admin');
@@ -39,7 +46,6 @@ class AuthController extends Controller
             }
 
             $request->session()->regenerate();
-
 
             //for ACTIVE USERS = ADMIN
             if (Auth::user()->role_id == 1) {
@@ -74,5 +80,25 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('login');
+    }
+
+    public function signupProcess(Request $request)
+    {
+        
+        $validated = $request->validate([
+            'username' => 'required|unique:users|max:255', //users-> refers USERS table name in DB
+            'password' => 'required|max:255',
+            'phone' => 'max:255',
+            'address' => 'required',
+        ]);
+
+        //for hashing password in DB (password encryption)
+        $request['password'] = Hash::make($request->password);
+        $user = User::create($request->all());
+
+        //for WRONG USERNAME OR PASSWORD
+        Session::flash('status', 'Success');
+        Session::flash('message', 'Registration successful, please contact your admin for account approval');
+        return redirect('signup');
     }
 }
