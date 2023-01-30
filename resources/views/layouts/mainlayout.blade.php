@@ -11,12 +11,98 @@
     rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" 
     crossorigin="anonymous">
 
+    {{-- include file style.css, refer to public folder --}}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+    {{-- Bootstrap icon --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
 </head>
+
 <body>
 
-    <div class="container">
-		@yield('content')
-	</div>
+    <div class="main d-flex flex-column justify-content-between">
+        {{-- NAVBAR ON TOP --}}
+        <nav class="navbar navbar-dark navbar-expand-lg bg-primary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Rental Book</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" 
+                aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+
+    
+
+        {{-- CONTENT BODY --}}
+        <div class="content-body h-100">
+            <div class="row g-0 h-100">
+
+                {{-- NAV SIDE BAR --}}
+                <div class="sidebar col-lg-2 collapse d-lg-block" id="navbarTogglerDemo03">
+                    
+                        {{-- if USER is ADMIN, display menu sidebar --}}
+                        @if(Auth::user()->role_id == 1)
+
+                        {{-- request()->route()->uri : for current SIDE BAR MENU is clicked/displayed --}}
+                        <a href="dashboard" 
+                        @if(request()->route()->uri == 'dashboard')
+                            class="active"
+                        @endif>Dashboard</a>
+
+                        <a href="book"
+                        @if(request()->route()->uri == 'book')
+                            class="active"
+                        @endif>Books</a>
+
+                        <a href="category"
+                        @if(request()->route()->uri == 'category')
+                            class="active"
+                        @endif>Categories</a>
+
+                        <a href="user" 
+                        @if(request()->route()->uri == 'user')
+                            class="active"
+                        @endif>Users</a>
+
+                        <a href="rent-log" 
+                        @if(request()->route()->uri == 'rent-log')
+                            class="active"
+                        @endif>Rent Logs</a>
+
+                        <a href="logout" 
+                        @if(request()->route()->uri == 'logout')
+                            class="active"
+                        @endif>Logout</a>
+
+                        @else
+                        {{-- if USER is CLIENT, display menu sidebar --}}
+                        <a href="profile" 
+                        @if(request()->route()->uri == 'profile')
+                            class="active"
+                        @endif>Profile</a>
+
+                        <a href="logout"
+                        @if(request()->route()->uri == 'logout')
+                            class="active"
+                        @endif>Logout</a>
+                        @endif
+
+                    
+                </div>
+
+                {{-- CONTENT BODY AT THE RIGHT SIDE --}}
+                <div class="content p-5 col-lg-10">
+                    @yield('content')
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
     
     {{-- JavaScript --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 

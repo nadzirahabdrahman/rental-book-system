@@ -1,8 +1,9 @@
 @extends('layouts.mainlayout')
  
-@section('title', 'Profile')
+@section('title', 'Rent Log')
  
 @section('content')
 
-<h1>profile page</h1>
+<h1>rent log page</h1>
+
 @endsection

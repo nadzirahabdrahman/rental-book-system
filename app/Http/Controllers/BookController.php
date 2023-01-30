@@ -8,7 +8,7 @@ class BookController extends Controller
 {
     public function index(Request $request)
     {
-        dd('hi books');
+        return view('book');
     }
     
 }
