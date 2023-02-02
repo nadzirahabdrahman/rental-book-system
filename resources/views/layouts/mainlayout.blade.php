@@ -58,7 +58,12 @@
                         @endif>Books</a>
 
                         <a href="category"
-                        @if(request()->route()->uri == 'category')
+                        @if(request()->route()->uri == 'category' || 
+                        request()->route()->uri == 'category-add' ||
+                        request()->route()->uri == 'category-edit/{slug}' ||
+                        request()->route()->uri == 'category-delete/{slug}' ||
+                        request()->route()->uri == 'category-deleted-list'
+                        )
                             class="active"
                         @endif>Categories</a>
 

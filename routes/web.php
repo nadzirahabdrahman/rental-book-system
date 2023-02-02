@@ -53,7 +53,15 @@ Route::middleware('auth')->group(function() {
     Route::get('book', [BookController::class, 'index']);
 
     Route::get('category', [CategoryController::class, 'index']);
-
+    Route::get('category-add', [CategoryController::class, 'add']); //redirect to Add new category page
+    Route::post('category-add', [CategoryController::class, 'store']); //SAVE button at category-add page
+    Route::get('category-edit/{slug}', [CategoryController::class, 'edit']);//redirect to Edit category page
+    Route::put('category-edit/{slug}', [CategoryController::class, 'update']); //UPDATE button at category-edit page
+    Route::get('category-delete/{slug}', [CategoryController::class, 'delete']); //redirect to delete confirmation page
+    Route::get('category-destroy/{slug}', [CategoryController::class, 'destroy']); // DELETE button at category-delete page
+    Route::get('category-deleted-list', [CategoryController::class, 'deleted']); //redirect to category-deleted-list
+    Route::get('category-restore/{slug}', [CategoryController::class, 'restore']); //RESTORE button
+    
     Route::get('user', [UserController::class, 'index']);
 
     Route::get('rent-log', [RentLogController::class, 'index']);

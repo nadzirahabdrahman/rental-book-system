@@ -4,7 +4,7 @@
  
 @section('content')
 
-<h1>hello {{ Auth::user()->username }}</h1>
+<h1>Hello, {{ Auth::user()->username }}</h1>
 
 <div class="row my-5">
     <div class="col-lg-4">
@@ -22,7 +22,7 @@
     <div class="col-lg-4">
         <div class="card-data category">
             <div class="row">
-                <div class="col-6"><i class="bi bi-card-list"></i></i></div>
+                <div class="col-6"><i class="bi bi-card-list"></i></div>
                 <div class="col-6 d-flex flex-column justify-content-center align-items-end">
                     <div class="card-desc">Categories</div>
                     <div class="card-count">{{ $categoryCount }}</div>
