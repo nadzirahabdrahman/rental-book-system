@@ -51,13 +51,21 @@ Route::middleware('auth')->group(function() {
     ->middleware('client');
 
     Route::get('book', [BookController::class, 'index']);
+    Route::get('book-add', [BookController::class, 'add']);//redirect to Add new book page
+    Route::post('book-add', [BookController::class, 'store']);//SAVE button at book-add page
+    Route::get('book-edit/{slug}', [BookController::class, 'edit']);//redirect to Edit book page
+    Route::post('book-edit/{slug}', [BookController::class, 'update']);//UPDATE button at book-edit page
+    Route::get('book-delete/{slug}', [BookController::class, 'delete']);//redirect to book delete confirmation page
+    Route::get('book-destroy/{slug}', [BookController::class, 'destroy']);// DELETE button at book-delete page
+    Route::get('book-deleted-list', [BookController::class, 'deleted']);//redirect to book-deleted-list
+    Route::get('book-restore/{slug}', [BookController::class, 'restore']); //RESTORE button
 
     Route::get('category', [CategoryController::class, 'index']);
     Route::get('category-add', [CategoryController::class, 'add']); //redirect to Add new category page
     Route::post('category-add', [CategoryController::class, 'store']); //SAVE button at category-add page
     Route::get('category-edit/{slug}', [CategoryController::class, 'edit']);//redirect to Edit category page
     Route::put('category-edit/{slug}', [CategoryController::class, 'update']); //UPDATE button at category-edit page
-    Route::get('category-delete/{slug}', [CategoryController::class, 'delete']); //redirect to delete confirmation page
+    Route::get('category-delete/{slug}', [CategoryController::class, 'delete']); //redirect to category delete confirmation page
     Route::get('category-destroy/{slug}', [CategoryController::class, 'destroy']); // DELETE button at category-delete page
     Route::get('category-deleted-list', [CategoryController::class, 'deleted']); //redirect to category-deleted-list
     Route::get('category-restore/{slug}', [CategoryController::class, 'restore']); //RESTORE button

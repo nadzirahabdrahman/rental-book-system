@@ -1,11 +1,11 @@
 @extends('layouts.mainlayout')
  
-@section('title', 'Deleted categories')
+@section('title', 'Deleted books')
  
 @section('content')
 
 <div>
-    <h2>Deleted categories</h2>
+    <h2>Deleted books</h2>
 </div>
 
 @if(session('status'))
@@ -15,8 +15,8 @@
 @endif
 
 <div class="return-btn my-5 d-flex justify-content-start">
-    <a href="/category" class="btn btn-primary">
-        <div><i class="bi bi-arrow-left"></i>Category list</div>
+    <a href="/book" class="btn btn-primary">
+        <div><i class="bi bi-arrow-left"></i>Book list</div>
     </a>
 </div>
 
@@ -25,18 +25,20 @@
         <thead>
             <tr>
                 <th>No.</th>
-                <th>Name</th>
+                <th>Code</th>
+                <th>Title</th>
                 <th style="text-align: center">Actions</th>
             </tr>
         </thead>
 
         <tbody>
-            @foreach ($deletedCategories as $item)
+            @foreach ($deletedBooks as $item)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $item->name }}</td>
+                    <td>{{ $item->book_code }}</td>
+                    <td>{{ $item->title }}</td>
                     <td style="text-align: center">
-                        <a href="category-restore/{{ $item->slug }}" class="btn btn-secondary col-3">
+                        <a href="/book-restore/{{ $item->slug }}" class="btn btn-secondary col-5">
                             <i class="bi bi-arrow-counterclockwise"></i>Restore</a>
                     </td>
                 </tr>

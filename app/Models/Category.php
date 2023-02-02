@@ -15,6 +15,7 @@ class Category extends Model
         'name', 'slug'
     ];
 
+    //to make SEO (url) more friendly: url based of category name
     public function sluggable(): array
     {
         return [

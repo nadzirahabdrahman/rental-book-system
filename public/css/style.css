@@ -68,7 +68,7 @@
     color: white ;
 }
 
-.add-category-btn i {
+.add-delete-btn i {
     padding-right: 10px;
 }
 
@@ -84,14 +84,22 @@
     margin: 10px;
 }
 
-.back-category-btn i {
+.return-btn i {
     padding-right: 10px;
 }
 
-.category-del-list i {
+.deleted-list i {
     padding-right: 5px;
 }
 
 .category-list i {
+    padding-right: 8px;
+}
+
+.add-del-books-btn i {
+    padding-right: 10px;
+}
+
+.book-list i {
     padding-right: 8px;
 }

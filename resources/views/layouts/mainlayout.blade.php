@@ -47,17 +47,20 @@
                         @if(Auth::user()->role_id == 1)
 
                         {{-- request()->route()->uri : for current SIDE BAR MENU is clicked/displayed --}}
-                        <a href="dashboard" 
+                        <a href="/dashboard" 
                         @if(request()->route()->uri == 'dashboard')
                             class="active"
                         @endif>Dashboard</a>
 
-                        <a href="book"
-                        @if(request()->route()->uri == 'book')
+                        <a href="/book"
+                        @if(request()->route()->uri == 'book' || 
+                        request()->route()->uri == 'book-add' ||
+                        request()->route()->uri == 'book-edit/{slug}'
+                        )
                             class="active"
                         @endif>Books</a>
 
-                        <a href="category"
+                        <a href="/category"
                         @if(request()->route()->uri == 'category' || 
                         request()->route()->uri == 'category-add' ||
                         request()->route()->uri == 'category-edit/{slug}' ||
@@ -67,17 +70,17 @@
                             class="active"
                         @endif>Categories</a>
 
-                        <a href="user" 
+                        <a href="/user" 
                         @if(request()->route()->uri == 'user')
                             class="active"
                         @endif>Users</a>
 
-                        <a href="rent-log" 
+                        <a href="/rent-log" 
                         @if(request()->route()->uri == 'rent-log')
                             class="active"
                         @endif>Rent Logs</a>
 
-                        <a href="logout" 
+                        <a href="/logout" 
                         @if(request()->route()->uri == 'logout')
                             class="active"
                         @endif>Logout</a>

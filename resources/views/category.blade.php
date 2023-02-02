@@ -8,7 +8,7 @@
     <h2>List of Category</h2>
 </div>
 
-<div class="add-category-btn mt-3 d-flex justify-content-end">
+<div class="add-delete-btn mt-3 d-flex justify-content-end">
     <a href="category-add" class="me-3 btn btn-primary">
         <div><i class="bi bi-plus-lg"></i>New category</div>
     </a>
@@ -39,9 +39,9 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $item->name }}</td>
                     <td style="text-align: center">
-                        <a style="color: white" href="category-edit/{{ $item->slug }}" class="btn btn-info col-3">
+                        <a style="color: white" href="/category-edit/{{ $item->slug }}" class="btn btn-info col-3">
                             <i class="bi bi-pencil-square"></i>Edit</a>
-                        <a href="category-delete/{{ $item->slug }}" class="btn btn-danger col-3">
+                        <a href="/category-delete/{{ $item->slug }}" class="btn btn-danger col-3">
                             <i class="bi bi-trash3"></i>Delete</a>
                     </td>
                 </tr>
