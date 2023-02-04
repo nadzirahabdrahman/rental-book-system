@@ -4,7 +4,9 @@
  
 @section('content')
 
-<h1>Delete category</h1>
+<div>
+    <h2>Delete category</h2>
+</div>
 
 <div class="my-3 delete-category-btn">
     <strong class="d-flex justify-content-center align-items-center">

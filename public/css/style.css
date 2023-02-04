@@ -68,15 +68,11 @@
     color: white ;
 }
 
-.add-delete-btn i {
-    padding-right: 10px;
-}
-
-.delete-category-btn a {
+.delete-btn a {
     margin: 10px;
 }
 
-.delete-category-btn strong {
+.delete-btn strong {
     font-size: 20px;
 }
 
@@ -84,7 +80,7 @@
     margin: 10px;
 }
 
-.return-btn i {
+.upper-btn i {
     padding-right: 10px;
 }
 
@@ -92,7 +88,7 @@
     padding-right: 5px;
 }
 
-.category-list i {
+.table-list i {
     padding-right: 8px;
 }
 
@@ -100,6 +96,3 @@
     padding-right: 10px;
 }
 
-.book-list i {
-    padding-right: 8px;
-}

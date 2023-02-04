@@ -14,7 +14,7 @@
 </div>  
 @endif
 
-<div class="return-btn my-5 d-flex justify-content-start">
+<div class="upper-btn my-5 d-flex justify-content-end">
     <a href="/category" class="btn btn-primary">
         <div><i class="bi bi-arrow-left"></i>Category list</div>
     </a>

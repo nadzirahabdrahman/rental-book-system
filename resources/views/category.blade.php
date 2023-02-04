@@ -8,7 +8,7 @@
     <h2>List of Category</h2>
 </div>
 
-<div class="add-delete-btn mt-3 d-flex justify-content-end">
+<div class="upper-btn mt-3 d-flex justify-content-end">
     <a href="category-add" class="me-3 btn btn-primary">
         <div><i class="bi bi-plus-lg"></i>New category</div>
     </a>
@@ -23,7 +23,7 @@
 </div>  
 @endif
 
-<div class="my-5 category-list">
+<div class="my-5 table-list">
     <table class="table table-hover">
         <thead>
             <tr>

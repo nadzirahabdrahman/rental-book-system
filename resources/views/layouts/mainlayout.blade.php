@@ -55,8 +55,9 @@
                         <a href="/book"
                         @if(request()->route()->uri == 'book' || 
                         request()->route()->uri == 'book-add' ||
-                        request()->route()->uri == 'book-edit/{slug}'
-                        )
+                        request()->route()->uri == 'book-edit/{slug}' ||
+                        request()->route()->uri == 'book-delete/{slug}' ||
+                        request()->route()->uri == 'book-deleted-list')
                             class="active"
                         @endif>Books</a>
 
@@ -65,13 +66,17 @@
                         request()->route()->uri == 'category-add' ||
                         request()->route()->uri == 'category-edit/{slug}' ||
                         request()->route()->uri == 'category-delete/{slug}' ||
-                        request()->route()->uri == 'category-deleted-list'
-                        )
+                        request()->route()->uri == 'category-deleted-list')
                             class="active"
                         @endif>Categories</a>
 
                         <a href="/user" 
-                        @if(request()->route()->uri == 'user')
+                        @if(request()->route()->uri == 'user' ||
+                        request()->route()->uri == 'user-registered' ||
+                        request()->route()->uri == 'user-detail/{slug}' ||
+                        request()->route()->uri == 'user-approve/{slug}' ||
+                        request()->route()->uri == 'user-delete/{slug}' ||
+                        request()->route()->uri == 'user-deleted-list')
                             class="active"
                         @endif>Users</a>
 

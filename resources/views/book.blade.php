@@ -8,7 +8,7 @@
     <h2>List of Books</h2>
 </div>
 
-<div class="add-del-books-btn mt-3 d-flex justify-content-end">
+<div class="upper-btn mt-3 d-flex justify-content-end">
     <a href="book-add" class="me-3 btn btn-primary">
         <div><i class="bi bi-plus-lg"></i>New book</div>
     </a>
@@ -23,7 +23,7 @@
 </div>  
 @endif
 
-<div class="my-5 book-list">
+<div class="my-5 table-list">
     <table class="table table-hover">
         <thead>
             <tr>

@@ -1,11 +1,11 @@
 @extends('layouts.mainlayout')
  
-@section('title', 'Deleted books')
+@section('title', 'Deleted users')
  
 @section('content')
 
 <div>
-    <h2>Deleted books</h2>
+    <h2>Deleted users</h2>
 </div>
 
 @if(session('status'))
@@ -15,8 +15,8 @@
 @endif
 
 <div class="upper-btn my-5 d-flex justify-content-end">
-    <a href="/book" class="btn btn-primary">
-        <div><i class="bi bi-arrow-left"></i>Book list</div>
+    <a href="/user" class="btn btn-primary">
+        <div><i class="bi bi-arrow-left"></i>User list</div>
     </a>
 </div>
 
@@ -25,20 +25,27 @@
         <thead>
             <tr>
                 <th>No.</th>
-                <th>Code</th>
-                <th>Title</th>
+                <th>Username</th>
+                <th style="text-align: center">Phone</th>
                 <th style="text-align: center">Actions</th>
             </tr>
         </thead>
 
         <tbody>
-            @foreach ($deletedBooks as $item)
+            @foreach ($deletedUsers as $item)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $item->book_code }}</td>
-                    <td>{{ $item->title }}</td>
+                    <td>{{ $item->username }}</td>
                     <td style="text-align: center">
-                        <a href="/book-restore/{{ $item->slug }}" class="btn btn-secondary col-5">
+                        @if($item->phone )
+                            {{ $item->phone }}
+                        
+                        @else
+                            -
+                        @endif
+                    </td>
+                    <td style="text-align: center">
+                        <a href="user-restore/{{ $item->slug }}" class="btn btn-secondary col-4">
                             <i class="bi bi-arrow-counterclockwise"></i>Restore</a>
                     </td>
                 </tr>

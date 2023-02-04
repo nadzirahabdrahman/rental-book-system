@@ -1,21 +1,21 @@
 @extends('layouts.mainlayout')
  
-@section('title', 'Delete book')
+@section('title', 'Delete user')
  
 @section('content')
 
 <div>
-    <h2>Delete book</h2>
+    <h2>Delete user</h2>
 </div>
 
 <div class="my-3 delete-btn">
     <strong class="d-flex justify-content-center align-items-center">
-        Are you sure want to delete book {{ $books->title }} ?
+        Are you sure want to delete user {{ $users->username }} ?
     </strong>
 
     <div class="d-flex justify-content-center align-items-center">
-        <a href="/book-destroy/{{ $books->slug }}" class="btn btn-danger col-3">Delete</a>
-        <a href="/book" class="btn btn-primary col-3">Cancel</a>
+        <a href="/user-destroy/{{ $users->slug }}" class="btn btn-danger col-3">Delete</a>
+        <a href="/user" class="btn btn-primary col-3">Cancel</a>
     </div>
 </div>
 

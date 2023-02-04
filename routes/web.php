@@ -70,8 +70,15 @@ Route::middleware('auth')->group(function() {
     Route::get('category-deleted-list', [CategoryController::class, 'deleted']); //redirect to category-deleted-list
     Route::get('category-restore/{slug}', [CategoryController::class, 'restore']); //RESTORE button
     
-    Route::get('user', [UserController::class, 'index']);
-
+    Route::get('user', [UserController::class, 'index']); //VIEW active users
+    Route::get('user-registered', [UserController::class, 'registered']);//VIEW inactive users
+    Route::get('user-detail/{slug}', [UserController::class, 'detail']); //redirect to user-detail page
+    Route::get('user-approve/{slug}', [UserController::class, 'approve']); //APPROVE USER button at user-detail/{slug}
+    Route::get('user-delete/{slug}', [UserController::class, 'delete']);//redirect to user delete confirmation page
+    Route::get('user-destroy/{slug}', [UserController::class, 'destroy']);// DELETE button at user-delete page
+    Route::get('user-deleted-list', [UserController::class, 'deleted']);//redirect to user-deleted-list
+    Route::get('user-restore/{slug}', [UserController::class, 'restore']);//RESTORE button
+    
     Route::get('rent-log', [RentLogController::class, 'index']);
 
 });

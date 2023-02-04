@@ -1,27 +1,18 @@
 @extends('layouts.mainlayout')
  
-@section('title', 'User')
+@section('title', 'Registered Users')
  
 @section('content')
 
 <div>
-    <h2>List of Users</h2>
+    <h2>List of Registered Users</h2>
 </div>
 
-<div class="upper-btn mt-3 d-flex justify-content-end">
-    <a href="/user-registered" class="btn btn-primary me-3">
-        <div><i class="bi bi-list-ul"></i>Registered users</div>
-    </a>
-    <a href="/user-deleted-list" class="btn btn-danger">
-        <div><i class="bi bi-trash"></i>Deleted users</div>
+<div class="upper-btn my-5 d-flex justify-content-end">
+    <a href="/user" class="btn btn-primary">
+        <div><i class="bi bi-arrow-left"></i>List of Users</div>
     </a>
 </div>
-
-@if(session('status'))
-<div class="my-5 alert alert-success">
-    {{ session('status') }}
-</div>  
-@endif
 
 <div class="my-5 table-list">
     <table class="table table-hover">
@@ -35,7 +26,7 @@
         </thead>
 
         <tbody>
-            @foreach ($users as $item)
+            @foreach ($registeredUsers as $item)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $item->username }}</td>
@@ -48,10 +39,8 @@
                         @endif
                     </td>
                     <td style="text-align: center">
-                        <a style="color: white" href="/user-detail/{{ $item->slug }}" class="btn btn-info col-3">
+                        <a style="color: white" href="/user-detail/{{ $item->slug }}" class="btn btn-info col-4">
                             <i class="bi bi-info-circle"></i>Details</a>
-                        <a href="/user-delete/{{ $item->slug }}" class="btn btn-danger col-3">
-                            <i class="bi bi-trash3"></i>Delete</a>
                     </td>
                 </tr>
             @endforeach
