@@ -8,14 +8,18 @@
     <h2>List of Books</h2>
 </div>
 
-<div class="upper-btn mt-3 d-flex justify-content-end">
-    <a href="book-add" class="me-3 btn btn-primary">
-        <div><i class="bi bi-plus-lg"></i>New book</div>
-    </a>
-    <a href="book-deleted-list" class="btn btn-danger">
-        <div><i class="bi bi-trash"></i>Deleted books</div>
-    </a>
-</div>
+    <div class="upper-btn mt-3 d-flex justify-content-end">
+        <a href="/" class="me-3 btn btn-primary">
+            <div><i class="bi bi-arrow-left"></i>Main book list</div>
+        </a>
+        <a href="book-add" class="me-3 btn btn-primary">
+            <div><i class="bi bi-plus-lg"></i>New book</div>
+        </a>
+        <a href="book-deleted-list" class="btn btn-danger">
+            <div><i class="bi bi-trash"></i>Deleted books</div>
+        </a>
+    </div>
+
 
 @if(session('status'))
 <div class="my-5 alert alert-success">

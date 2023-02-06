@@ -20,7 +20,7 @@ class Admin
         //for NOT ADMIN
         if (Auth::user()->role_id != 1) {
             
-            return redirect('books');
+            return redirect('/');
 
         }
         //for ADMIN

@@ -20,7 +20,7 @@ class Client
         //for NOT CLIENT
         if (Auth::user()->role_id != 2) {
             
-            return redirect('books');
+            return redirect('/');
             
         }
         //for CLIENT

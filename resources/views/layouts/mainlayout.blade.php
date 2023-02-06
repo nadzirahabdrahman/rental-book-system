@@ -43,6 +43,8 @@
                 {{-- NAV SIDE BAR --}}
                 <div class="sidebar col-lg-2 collapse d-lg-block" id="navbarTogglerDemo03">
                     
+                    @if(Auth::user())
+
                         {{-- if USER is ADMIN, display menu sidebar --}}
                         @if(Auth::user()->role_id == 1)
 
@@ -57,7 +59,8 @@
                         request()->route()->uri == 'book-add' ||
                         request()->route()->uri == 'book-edit/{slug}' ||
                         request()->route()->uri == 'book-delete/{slug}' ||
-                        request()->route()->uri == 'book-deleted-list')
+                        request()->route()->uri == 'book-deleted-list' ||
+                        request()->route()->uri == '/')
                             class="active"
                         @endif>Books</a>
 
@@ -91,19 +94,25 @@
                         @endif>Logout</a>
 
                         @else
+
                         {{-- if USER is CLIENT, display menu sidebar --}}
-                        <a href="profile" 
+                        <a href="/profile" 
                         @if(request()->route()->uri == 'profile')
                             class="active"
                         @endif>Profile</a>
 
-                        <a href="logout"
-                        @if(request()->route()->uri == 'logout')
+                        <a href="/" 
+                        @if(request()->route()->uri == '/')
                             class="active"
-                        @endif>Logout</a>
+                        @endif>Books</a>
+
+                        <a href="logout">Logout</a>
                         @endif
 
-                    
+                    @else
+                        <a href="/login">Log In</a>
+
+                    @endif
                 </div>
 
                 {{-- CONTENT BODY AT THE RIGHT SIDE --}}

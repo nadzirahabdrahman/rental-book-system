@@ -19,7 +19,7 @@ class GuestOnly
     {
 
         if (Auth::user()) {
-            return redirect('books');
+            return redirect('/');
         }
         
         return $next($request);
