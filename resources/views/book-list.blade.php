@@ -14,17 +14,15 @@
                 @endforeach
             </select>
         </div>
-    
+
         <div class="col-12 col-sm-6">
             <div class="input-group mb-3">
-                <input type="text" name="title" id="title" class="form-control" placeholder="Book's title">
+                <input type="text" name="title" class="form-control" placeholder="Title">
                 <button class="btn btn-primary" type="submit">Search</button>
             </div>
         </div>
     </div>
-
 </form>
-
 
 <div class="my-5">
     <div class="row">
@@ -38,7 +36,11 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $item->title }}</h5>
                     <p class="card-text">{{ $item->book_code }}</p>
-                    <p class="card-text">{{ $item->book_code }}</p>
+                    <p class="card-text">
+                        @foreach ($item->categories as $category)
+                            <li>{{ $category->name }} </li>
+                        @endforeach
+                    </p>
                     <p class="fw-bold card-text text-end 
                         {{ $item->status == 'In stock' ? 'text-success' : 'text-danger' }}">
                         {{ $item->status }}
