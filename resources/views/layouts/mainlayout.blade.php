@@ -73,6 +73,11 @@
                             class="active"
                         @endif>Categories</a>
 
+                        <a href="/book-rent" 
+                        @if(request()->route()->uri == 'book-rent')
+                            class="active"
+                        @endif>Book Rent</a>
+
                         <a href="/user" 
                         @if(request()->route()->uri == 'user' ||
                         request()->route()->uri == 'user-registered' ||

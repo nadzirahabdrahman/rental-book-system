@@ -6,6 +6,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\RentLogController;
+use App\Http\Controllers\BookRentController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 
@@ -46,8 +47,6 @@ Route::middleware('auth')->group(function() {
     Route::get('profile', [UserController::class, 'profile'])
     ->middleware('client');
 
-    
-    Route::get('rent-log', [RentLogController::class, 'index']);
 
     //for ADMIN only
     Route::middleware('admin')->group(function() {
@@ -82,7 +81,12 @@ Route::middleware('auth')->group(function() {
         Route::get('user-destroy/{slug}', [UserController::class, 'destroy']);// DELETE button at user-delete page
         Route::get('user-deleted-list', [UserController::class, 'deleted']);//redirect to user-deleted-list
         Route::get('user-restore/{slug}', [UserController::class, 'restore']);//RESTORE button
+
+        Route::get('book-rent', [BookRentController::class, 'index']);
+        Route::get('book-rent', [BookRentController::class, 'store']);
     });
+
+    Route::get('rent-log', [RentLogController::class, 'index']);
 
 });
 
