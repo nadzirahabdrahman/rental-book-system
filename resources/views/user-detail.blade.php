@@ -55,7 +55,15 @@
             <th>Status</th>
             <td>{{ $users->status }}</td>
         </tr>
+
+        <tr>
+            <th>Logs</th>
+            <td>    {{-- calling component rent-log-table, refer to resources/view/components file --}}
+                <x-rent-log-table :rentlogs='$rentlogs'/>
+            </td>
+        </tr>
     </table>
+
 
 </div>
 

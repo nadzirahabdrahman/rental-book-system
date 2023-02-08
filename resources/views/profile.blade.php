@@ -4,5 +4,13 @@
  
 @section('content')
 
-<h1>profile page</h1>
+<div>
+    <h2>Profile</h2>
+</div>
+
+<div>
+    {{-- calling component rent-log-table, refer to resources/view/components file --}}
+    <x-rent-log-table :rentlogs='$rentlogs'/>
+</div>
+
 @endsection
