@@ -4,7 +4,9 @@
  
 @section('content')
 
-<h1>Hello, {{ Auth::user()->username }}</h1>
+<div>
+    <h2>Hello, {{ Auth::user()->username }}</h2>
+</div>
 
 <div class="row my-5">
     <div class="col-lg-4">
@@ -50,28 +52,11 @@
     </div> --}}
 </div>
 
-<div class="mt-5">
-    <h2>Rent log</h2>
+<div class="my-5">
+    <h3>Rent log</h3>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>No.</th>
-                <th>User</th>
-                <th>Book title</th>
-                <th>Rent date</th>
-                <th>Return date</th>
-                <th>Actual return date</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <tr>
-                <td colspan="7" style="text-align: center">No data</td>
-            </tr>
-        </tbody>
-    </table>
+    {{-- calling component rent-log-table, refer to resources/view/components file --}}
+    <x-rent-log-table :rentlogs='$rentlogs'/>
 </div>
 
 

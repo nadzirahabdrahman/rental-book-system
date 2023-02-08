@@ -22,7 +22,7 @@ class BookRentController extends Controller
         return view('book-rent', ['users' => $users, 'books' => $books]);
     }
 
-    public function store(Request $request)
+    public function rent(Request $request)
     {
         $request['rent_date'] = Carbon::now()->toDateString();
         $request['return_date'] = Carbon::now()->addDay(3)->toDateString();
@@ -74,5 +74,25 @@ class BookRentController extends Controller
 
         }
         
+    }
+
+    public function return()
+    {
+        $users = User::where('id', '!=', '1')
+                ->where('status', '!=', 'inactive')
+                ->get();
+
+        $books = Book::all();
+
+        return view('book-return', ['users' => $users, 'books' => $books]);
+    }
+
+    public function returnBook(Request $request)
+    {
+        $rentlogs = RentLogs::where('user_id', $request->user_id)
+                    ->where('book_id', $request->book_id)
+                    ->count();
+
+        dd($rentlogs);
     }
 }

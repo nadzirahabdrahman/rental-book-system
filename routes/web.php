@@ -82,8 +82,10 @@ Route::middleware('auth')->group(function() {
         Route::get('user-deleted-list', [UserController::class, 'deleted']);//redirect to user-deleted-list
         Route::get('user-restore/{slug}', [UserController::class, 'restore']);//RESTORE button
 
-        Route::get('book-rent', [BookRentController::class, 'index']);
-        Route::post('book-rent', [BookRentController::class, 'store']);
+        Route::get('book-rent', [BookRentController::class, 'index']); //get DATA of books and users
+        Route::post('book-rent', [BookRentController::class, 'rent']); //SUBMIT button at book-rent page
+        Route::get('book-return', [BookRentController::class, 'return']); //redirect to book-return page
+        Route::post('book-return', [BookRentController::class, 'returnBook']);//SUBMIT button at book-return page
 
         Route::get('rent-log', [RentLogController::class, 'index']);
 
