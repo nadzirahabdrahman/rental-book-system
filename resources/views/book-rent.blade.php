@@ -12,11 +12,18 @@
 </div>
 
 <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-md-3">
+
+    @if(session('message'))
+        <div class="my-5 alert {{ session('alert-class') }}">
+            {{ session('message') }}
+        </div>  
+    @endif
+
     <form action="book-rent" method="post">
         @csrf
         <div class="mb-3">
             <label for="user" class="form-label">User</label>
-            <select name="user" id="user" class="form-control inputbox">
+            <select name="user_id" id="user" class="form-control inputbox">
                 <option value="">Select user</option>
                 @foreach ($users as $item)
                     <option value="{{ $item->id }}">{{ $item->username }}</option>
@@ -27,7 +34,7 @@
 
         <div class="mb-3">
             <label for="book" class="form-label">Book</label>
-            <select name="book" id="book" class="form-control inputbox">
+            <select name="book_id" id="book" class="form-control inputbox">
                 <option value="">Select book</option>
                 @foreach ($books as $item)
                     <option value="{{ $item->id }}">{{ $item->title }}</option>
