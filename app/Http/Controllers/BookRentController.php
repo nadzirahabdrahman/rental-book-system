@@ -91,8 +91,25 @@ class BookRentController extends Controller
     {
         $rentlogs = RentLogs::where('user_id', $request->user_id)
                     ->where('book_id', $request->book_id)
-                    ->count();
+                    ->where('actual_return_date', null);
+        
+        $rentData = $rentlogs->first();
+        $countData = $rentlogs->count();
 
-        dd($rentlogs);
+        if ($countData == 1) {
+            
+            $rentData->actual_return_date = Carbon::now()->toDateString();
+            $rentData->save();
+
+            Session::flash('message', 'The book has been returned');
+            Session::flash('alert-class', 'alert-success');
+            return redirect('book-return');
+
+        } else {
+
+            Session::flash('message', 'Return book process is failed');
+            Session::flash('alert-class', 'alert-danger');
+            return redirect('book-return');
+        }
     }
 }
